@@ -1,78 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dashboard.css">
-     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoMo Dashboard</title>
 
-    <title>Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="./dashboard.css">
 </head>
 <body>
-    <header class = "header">MOMO
-        <div class="dropdown">
-        <!-- <button>Quick View ▼</button> -->
-        <!-- <div class="dropdown-content"> -->
-          <a href="#">Profile</a>
-          <a href="#">Settings</a>
-          <a href="#">Help</a>
-        
+
+  <header class="header">
+    MOMO
+    <div class="dropdown">
+      <span><i class="fas fa-user-circle"></i></span>
+      <div class="dropdown-content">
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
+        <a href="#">Help</a>
+      </div>
     </div>
-        <a class="logout" href="/logout">Logout</a>
-        </aside>
-    </header>
+    <a class="logout" href="/logout">Logout</a>
+  </header>
 
+  <div class="dashboard-container">
+    <h1>Menu</h1>
+    <a href="#" class="dashboard-item" onclick="showSection('dashboard-section')"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+    <a href="#" class="dashboard-item" onclick="showSection('incoming-money-section')"><i class="fas fa-arrow-down"></i> Incoming Money</a>
+    <a href="#" class="dashboard-item" onclick="showSection('payments-section')"><i class="fas fa-credit-card"></i> Payments</a>
+    <a href="#" class="dashboard-item" onclick="showSection('withdrawals-section')"><i class="fas fa-money-bill-wave"></i> Withdrawals</a>
+    <a href="#" class="dashboard-item" onclick="showSection('airtime-purchase-section')"><i class="fas fa-mobile-alt"></i> Airtime Purchase</a>
+    <a href="#" class="dashboard-item" onclick="showSection('bank-transfers-section')"><i class="fas fa-university"></i> Bank Transfers</a>
+    <a href="#" class="dashboard-item" onclick="showSection('unknown-section')"><i class="fas fa-question-circle"></i> Unknown</a>
+    <a href="#" class="dashboard-item" onclick="showSection('data-bundles-section')"><i class="fas fa-wifi"></i> Data Bundles</a>
+    <a href="#" class="dashboard-item" onclick="showSection('bank-deposits-section')"><i class="fas fa-piggy-bank"></i> Bank Deposits</a>
+    <a href="#" class="dashboard-item" onclick="showSection('failed-transfer-section')"><i class="fas fa-times-circle"></i> Failed Transfers</a>
+    <a href="#" class="dashboard-item" onclick="showSection('fund-transfer-section')"><i class="fas fa-exchange-alt"></i> Fund Transfer</a>
+  </div>
 
-    <div class="dashboard-container"style="margin-top: 20px;" line-height: 1.5;">
-        <h1>main</h1>
-        <a href="javascript:void(0);" 
-        class="dashboard-item" 
-        onclick="showSection('Dashboard-section')">
-        <i class="fas fa-tachometer-alt" style="margin-right: 8px; color: #001F5B;">
-        </i>Dashboard <strong id="sent-today"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('incoming-money-section-')"><i class="fas fa-arrow-down" style="margin-right: 8px; color: green;"></i>Incoming Money<strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('payments-section-section')"><i class="fas fa-credit-card" style="margin-right: 8px; color: teal;"></i>Payments <strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('withdrawals-section')"><i class="fas fa-money-bill-wave" style="margin-right: 8px; color: orange;"></i>Withdrawals<strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('airtime-purchase-section')"><i class="fas fa-mobile-alt" style="margin-right: 8px; color: #ff9800;"></i>Airtime Purchase<strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('bank-transfers-section')"><i class="fas fa-university" style="margin-right: 8px; color: #673ab7;"></i>Bank Transfers<strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('unknown-section')"><i class="fas fa-question-circle" style="margin-right: 8px; color: red;"></i>Unknown<strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('data-bundles-section')"><i class="fas fa-wifi" style="margin-right: 8px; color: #3f51b5;"></i>Data Bundles purchase<strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('bank-deposits-section')"><i class="fas fa-piggy-bank" style="margin-right: 8px; color: #795548;"></i>Bank Deposits><strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('failed-transfer-section')"><i class="fas fa-times-circle" style="margin-right: 8px; color: crimson;"></i>Failed Transfers<strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('fund-transfer-section')"><i class="fas fa-exchange-alt" style="margin-right: 8px; color: #607d8b;"></i> Fund Transfer<strong id="bank-count"></strong></a>
-    </div>
-</div>
-
-<div id="bank-transfers-section" class="details-section" style="display: none;">
-  <h2>Bank Transfers</h2>
-  <p>Transaction 1: MTN MoMo to BICEC - 10,000 FCFA</p>
-  <p>Transaction 2: MTN MoMo to Ecobank - 5,000 FCFA</p>
-  <!-- ill put data from database here -->
-</div>
-
-<div id="withdrawals-section" class="details-section" style="display: none;">
-  <h2>Withdrawals</h2>
-  <p>Transaction 1: 3,000 FCFA at agent</p>
-  <p>Transaction 2: 7,000 FCFA at ATM</p>
-</div>
-
-
-
+  <!-- Detail Sections -->
+<div id="dashboard-section" class="details-section">
+  <h2 class="text-2xl font-bold mb-6 text-[#001F5B]">Dashboard Overview</h2>
   
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    
+    <!-- Card: Bank Transfers -->
+    <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105">
+      <div class="flex items-center space-x-4">
+        <div class="text-purple-600 text-3xl">
+          <i class="fas fa-university"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800">Bank Transfers</h3>
+          <p class="text-gray-600">12,000 FCFA</p>
+          <span class="text-sm text-gray-400">3 Transactions</span>
+        </div>
+      </div>
+    </div>
 
-       
-        <script>
-  function showSection(id) {
-    // Hide all detail sections
-    const sections = document.querySelectorAll('.details-section');
-    sections.forEach(section => section.style.display = 'none');
+    <!-- Card: Airtime -->
+    <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105">
+      <div class="flex items-center space-x-4">
+        <div class="text-orange-500 text-3xl">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800">Airtime</h3>
+          <p class="text-gray-600">2,000 FCFA</p>
+          <span class="text-sm text-gray-400">1 Transaction</span>
+        </div>
+      </div>
+    </div>
 
-    // Show the clicked one
-    document.getElementById(id).style.display = 'block';
-  }
-</script>
-<script src="/static/script.js"></script>
+    <!-- Card: Payments -->
+    <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105">
+      <div class="flex items-center space-x-4">
+        <div class="text-teal-600 text-3xl">
+          <i class="fas fa-credit-card"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800">Payments</h3>
+          <p class="text-gray-600">5,500 FCFA</p>
+          <span class="text-sm text-gray-400">2 Transactions</span>
+        </div>
+      </div>
+    </div>
 
- </body>
+    <!-- Card: Withdrawals -->
+    <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105">
+      <div class="flex items-center space-x-4">
+        <div class="text-orange-400 text-3xl">
+          <i class="fas fa-money-bill-wave"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800">Withdrawals</h3>
+          <p class="text-gray-600">10,000 FCFA</p>
+          <span class="text-sm text-gray-400">2 Transactions</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: Data Bundles -->
+    <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105">
+      <div class="flex items-center space-x-4">
+        <div class="text-blue-500 text-3xl">
+          <i class="fas fa-wifi"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800">Data Bundles</h3>
+          <p class="text-gray-600">3,500 FCFA</p>
+          <span class="text-sm text-gray-400">1 Transaction</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: Failed Transfers -->
+    <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105">
+      <div class="flex items-center space-x-4">
+        <div class="text-red-500 text-3xl">
+          <i class="fas fa-times-circle"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800">Failed Transfers</h3>
+          <p class="text-gray-600">0 FCFA</p>
+          <span class="text-sm text-gray-400">0 Transactions</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+  <div id="incoming-money-section" class="details-section">
+    <h2>Incoming Money</h2>
+    <p>Received 5,000 FCFA from +237 6XX XXX XXX</p>
+  </div>
+
+  <div id="payments-section" class="details-section">
+    <h2>Payments</h2>
+    <p>Paid 2,000 FCFA for groceries</p>
+  </div>
+
+  <div id="withdrawals-section" class="details-section">
+    <h2>Withdrawals</h2>
+    <p>ATM withdrawal - 7,000 FCFA</p>
+  </div>
+
+  <div id="airtime-purchase-section" class="details-section">
+    <h2>Airtime Purchase</h2>
+    <p>Airtime bought - 1,000 FCFA</p>
+  </div>
+
+  <div id="bank-transfers-section" class="details-section">
+    <h2>Bank Transfers</h2>
+    <p>Transfer to Ecobank - 15,000 FCFA</p>
+  </div>
+
+  <div id="unknown-section" class="details-section">
+    <h2>Unknown Transactions</h2>
+    <p>Transaction under review</p>
+  </div>
+
+  <div id="data-bundles-section" class="details-section">
+    <h2>Data Bundles</h2>
+    <p>1GB purchased for 2,000 FCFA</p>
+  </div>
+
+  <div id="bank-deposits-section" class="details-section">
+    <h2>Bank Deposits</h2>
+    <p>Deposited 10,000 FCFA</p>
+  </div>
+
+  <div id="failed-transfer-section" class="details-section">
+    <h2>Failed Transfers</h2>
+    <p>Transfer to UBA - Failed</p>
+  </div>
+
+  <div id="fund-transfer-section" class="details-section">
+    <h2>Fund Transfers</h2>
+    <p>Sent 3,000 FCFA to sibling</p>
+  </div>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.details-section');
+      sections.forEach(section => section.style.display = 'none');
+      const target = document.getElementById(id);
+      if (target) {
+        target.style.display = 'block';
+      }
+    }
+
+    // Show dashboard by default
+    document.addEventListener("DOMContentLoaded", () => {
+      showSection("dashboard-section");
+    });
+  </script>
+
+</body>
 </html>
