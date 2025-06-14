@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css">
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <title>Dashboard</title>
+</head>
+<body>
+    <header class = "header">MOMO
+        <div class="dropdown">
+        <!-- <button>Quick View ▼</button> -->
+        <!-- <div class="dropdown-content"> -->
+          <a href="#">Profile</a>
+          <a href="#">Settings</a>
+          <a href="#">Help</a>
+        
+    </div>
+        <a class="logout" href="/logout">Logout</a>
+        </aside>
+    </header>
+
+
+    <div class="dashboard-container">
+        <h1>main</h1>
+        <p><i class="fas fa-tachometer-alt" style="margin-right: 8px; color: #001F5B;"></i>Dashboard <strong id="sent-today"></strong></p>
+        <p><i class="fas fa-arrow-down" style="margin-right: 8px; color: green;"></i>Incoming Money<strong id="bank-count"></strong></p>
+        <p><i class="fas fa-credit-card" style="margin-right: 8px; color: teal;"></i>Payments <strong id="bank-count"></strong></p>
+        <p><i class="fas fa-money-bill-wave" style="margin-right: 8px; color: orange;"></i>Withdrawals<strong id="bank-count"></strong></p>
+        <p><i class="fas fa-mobile-alt" style="margin-right: 8px; color: #ff9800;"></i>Airtime Purchase<strong id="bank-count"></strong></p>
+        <p><i class="fas fa-university" style="margin-right: 8px; color: #673ab7;"></i>Bank Transfers<strong id="bank-count"></strong></p>
+        <p><i class="fas fa-question-circle" style="margin-right: 8px; color: red;"></i>Unknown<strong id="bank-count"></strong></p>
+        <p><i class="fas fa-wifi" style="margin-right: 8px; color: #3f51b5;"></i>Data Bundles purchase<strong id="bank-count"></strong></p>
+        <p><i class="fas fa-piggy-bank" style="margin-right: 8px; color: #795548;"></i>Bank Deposits><strong id="bank-count"></strong></p>
+        <p><i class="fas fa-times-circle" style="margin-right: 8px; color: crimson;"></i>Faild Transfers<strong id="bank-count"></strong></p>
+        <p><i class="fas fa-exchange-alt" style="margin-right: 8px; color: #607d8b;"></i> Fund Transfer<strong id="bank-count"></strong></p>
+    </div>
+</div>
+          
+ </section>     
+     <aside class ="dashboard-button"></aside>
+</div>
+
+
+    <!-- <main class="dashboard">
+        <section class = "charts">
+            <canvas id = "pieCharts"></canvas>
+            <canvas id = "barChats"></canvas>
+        </section>
+     <section class="history">
+        <h3>Transaction History</h3>
+        <ul id="tx-list"></ul>
+      </section>
+    </main>
+  </div> -->
+
+  <script src="/static/script.js"></script>
+
+        <!-- <div class="actions">
+            <button onclick="location.href='https://example.com/transactions'">View Transactions</button>
+            <button onclick="location.href='https://example.com/settings'">Settings</button>
+            <button onclick="location.href='https://example.com/logout'">Logout</button>
+        </div> -->
+ </body>
+</html>
