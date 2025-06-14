@@ -132,6 +132,18 @@
     </div>
 
   </div>
+  <div class="chart-section">
+  <div class="chart-box">
+    <h3>Transaction Categories</h3>
+    <canvas id="categoryChart"></canvas>
+  </div>
+
+  <div class="chart-box">
+    <h3>Daily Transaction Amount</h3>
+    <canvas id="dailyChart"></canvas>
+  </div>
+</div>
+
 </div>
 
 
@@ -185,6 +197,7 @@
     <p>Sent 3,000 FCFA to sibling</p>
   </div>
 
+
   <script>
     function showSection(id) {
       const sections = document.querySelectorAll('.details-section');
@@ -194,12 +207,60 @@
         target.style.display = 'block';
       }
     }
-
+  
     // Show dashboard by default
     document.addEventListener("DOMContentLoaded", () => {
       showSection("dashboard-section");
     });
-  </script>
+  // PIE CHART: Transaction Categories
+  const ctx1 = document.getElementById('categoryChart').getContext('2d');
+  new Chart(ctx1, {
+    type: 'pie',
+    data: {
+      labels: ['Bank Transfers', 'Airtime', 'Payments', 'Withdrawals'],
+      datasets: [{
+        label: 'Transactions',
+        data: [3, 1, 2, 2],
+        backgroundColor: ['#673ab7', '#ff9800', '#009688', '#ffc107'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }
+  });
+
+  // BAR CHART: Daily Transaction Amounts
+  const ctx2 = document.getElementById('dailyChart').getContext('2d');
+  new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+      datasets: [{
+        label: 'FCFA',
+        data: [8000, 12000, 5500, 9500, 7000],
+        backgroundColor: '#001F5B'
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: value => value + ' FCFA'
+          }
+        }
+      }
+    }
+  });
+</script>
+
 
 </body>
 </html>
