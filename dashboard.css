@@ -40,6 +40,28 @@ header {
   box-sizing: border-box;
 }
 
+.dashboard-item {
+  display: flex;
+  padding: 12px 20px;
+  margin: 10px 0;
+  /* background-color: #ffffff; */
+  /* border-radius: 12px; */
+  color: #000000;
+  text-decoration: none; /* ✅ No underline */
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  /* transition:  0.3s, transform 0.2s */
+}
+.dashboard-item i {
+ text-decoration-style: none;
+  margin-right: 10px;
+  color: #0c0c0e; /* Icon color */
+}
+.dashboard-item:hover {
+  background-color: #02206b;
+  transform: scale(1.02); /* Subtle zoom */
+  cursor: pointer;
+}
 
 .dropdown {
   position: relative;
