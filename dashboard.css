@@ -59,6 +59,7 @@ header {
 }
 .dashboard-item:hover {
   background-color: #02206b;
+  color: white;
   transform: scale(1.02); /* Subtle zoom */
   cursor: pointer;
 }

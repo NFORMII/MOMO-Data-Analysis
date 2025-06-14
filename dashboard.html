@@ -26,19 +26,22 @@
 
     <div class="dashboard-container"style="margin-top: 20px;" line-height: 1.5;">
         <h1>main</h1>
-        <a href="javascript:void(0);" class="dashboard-item"> <onclick="showSection('Dashboard-section')"><i class="fas fa-tachometer-alt" style="margin-right: 8px; color: #001F5B;"></i>Dashboard <strong id="sent-today"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item"><onclick="showSection('Incoming-Money-section')"><i class="fas fa-arrow-down" style="margin-right: 8px; color: green;"></i>Incoming Money<strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item"><onclick="showSection('Payments-section')"><i class="fas fa-credit-card" style="margin-right: 8px; color: teal;"></i>Payments <strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item"><onclick="showSection('Withdrawals-section')"><i class="fas fa-money-bill-wave" style="margin-right: 8px; color: orange;"></i>Withdrawals<strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item"><onlcick="showSection('Airtime-Purchase-section')><i class="fas fa-mobile-alt" style="margin-right: 8px; color: #ff9800;"></i>Airtime Purchase<strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item"><onlcick="showSection('Bank-Transfers-section')><i class="fas fa-university" style="margin-right: 8px; color: #673ab7;"></i>Bank Transfers<strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item"><onlcick="showSection('Unknown-section')><i class="fas fa-question-circle" style="margin-right: 8px; color: red;"></i>Unknown<strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item"><onlcick="showSection('Data-Bundles-section')><i class="fas fa-wifi" style="margin-right: 8px; color: #3f51b5;"></i>Data Bundles purchase<strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item"><onlcick="showSection('Bank-Deposits-section')><i class="fas fa-piggy-bank" style="margin-right: 8px; color: #795548;"></i>Bank Deposits><strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item"><onlcick="showSection('Failed-Transfer-section')><i class="fas fa-times-circle" style="margin-right: 8px; color: crimson;"></i>Failed Transfers<strong id="bank-count"></strong></a>
-        <a href="javascript:void(0);" class="dashboard-item"><onlcick="showSection('Fund-Transfer-section')><i class="fas fa-exchange-alt" style="margin-right: 8px; color: #607d8b;"></i> Fund Transfer<strong id="bank-count"></strong></a>
+        <a href="javascript:void(0);" 
+        class="dashboard-item" 
+        onclick="showSection('Dashboard-section')">
+        <i class="fas fa-tachometer-alt" style="margin-right: 8px; color: #001F5B;">
+        </i>Dashboard <strong id="sent-today"></strong></a>
+        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('Incoming-Money-section')"><i class="fas fa-arrow-down" style="margin-right: 8px; color: green;"></i>Incoming Money<strong id="bank-count"></strong></a>
+        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('Payments-section')"><i class="fas fa-credit-card" style="margin-right: 8px; color: teal;"></i>Payments <strong id="bank-count"></strong></a>
+        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('Withdrawals-section')"><i class="fas fa-money-bill-wave" style="margin-right: 8px; color: orange;"></i>Withdrawals<strong id="bank-count"></strong></a>
+        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('Airtime-Purchase-section')"><i class="fas fa-mobile-alt" style="margin-right: 8px; color: #ff9800;"></i>Airtime Purchase<strong id="bank-count"></strong></a>
+        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('bank-transfers-section')"><i class="fas fa-university" style="margin-right: 8px; color: #673ab7;"></i>Bank Transfers<strong id="bank-count"></strong></a>
+        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('Unknown-section')"><i class="fas fa-question-circle" style="margin-right: 8px; color: red;"></i>Unknown<strong id="bank-count"></strong></a>
+        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('Data-Bundles-section')"><i class="fas fa-wifi" style="margin-right: 8px; color: #3f51b5;"></i>Data Bundles purchase<strong id="bank-count"></strong></a>
+        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('Bank-Deposits-section')"><i class="fas fa-piggy-bank" style="margin-right: 8px; color: #795548;"></i>Bank Deposits><strong id="bank-count"></strong></a>
+        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('Failed-Transfer-section')"><i class="fas fa-times-circle" style="margin-right: 8px; color: crimson;"></i>Failed Transfers<strong id="bank-count"></strong></a>
+        <a href="javascript:void(0);" class="dashboard-item" onclick="showSection('Fund-Transfer-section')"><i class="fas fa-exchange-alt" style="margin-right: 8px; color: #607d8b;"></i> Fund Transfer<strong id="bank-count"></strong></a>
     </div>
-</div>
 </div>
 
 <div id="bank-transfers-section" class="details-section" style="display: none;">
@@ -56,25 +59,9 @@
 
 
 
-    <!-- <main class="dashboard">
-        <section class = "charts">
-            <canvas id = "pieCharts"></canvas>
-            <canvas id = "barChats"></canvas>
-        </section>
-     <section class="history">
-        <h3>Transaction History</h3>
-        <ul id="tx-list"></ul>
-      </section>
-    </main>
-  </div> -->
+  
 
-  <script src="/static/script.js"></script>
-
-        <!-- <div class="actions">
-            <button onclick="location.href='https://example.com/transactions'">View Transactions</button>
-            <button onclick="location.href='https://example.com/settings'">Settings</button>
-            <button onclick="location.href='https://example.com/logout'">Logout</button>
-        </div> -->
+       
         <script>
   function showSection(id) {
     // Hide all detail sections
@@ -85,6 +72,7 @@
     document.getElementById(id).style.display = 'block';
   }
 </script>
+<script src="/static/script.js"></script>
 
  </body>
 </html>
