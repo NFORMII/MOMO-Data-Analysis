@@ -168,6 +168,20 @@
   <div id="payments-section" class="details-section">
     <h2>Payments</h2>
     <p>Paid 2,000 FCFA for groceries</p>
+     <table id="transactions-table" class="table-auto w-full mt-4 text-left">
+    <thead>
+      <tr class="bg-gray-200 text-sm">
+        <th class="px-4 py-2">Transaction ID</th>
+        <th class="px-4 py-2">Amount Received</th>
+        <th class="px-4 py-2">Sender</th>
+        <th class="px-4 py-2">Date</th>
+        <th class="px-4 py-2">New Balance</th>
+      </tr>
+    </thead>
+    <tbody id="payments-body" class="text-sm">
+      <!-- Data will be inserted here -->
+    </tbody>
+  </table>
   </div>
 
   <div id="withdrawals-section" class="details-section">
@@ -287,6 +301,29 @@
         <td class="px-4 py-2">${tx.sender}</td>
         <td class="px-4 py-2">${tx.date}</td>
         <td class="px-4 py-2">${tx.new_balance} FCFA</td>
+      `;
+      tableBody.appendChild(row);
+    });
+  })
+  .catch(error => {
+    console.error('Error loading transactions:', error);
+  });
+
+
+    fetch('./data/payment_to_code_holders.json')
+  .then(response => response.json())
+  .then(data => {
+    const tableBody = document.getElementById('payments-body');
+    tableBody.innerHTML = ''; // Clear existing content
+
+    data.forEach(tx => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td class="px-4 py-2">${tx.transaction_id}</td>
+        <td class="px-4 py-2">${tx.amount} FCFA</td>
+        <td class="px-4 py-2">${tx.new_balance}</td>
+        <td class="px-4 py-2">${tx.fee}</td>
+        <td class="px-4 py-2">${tx.recipient} FCFA</td>
       `;
       tableBody.appendChild(row);
     });
