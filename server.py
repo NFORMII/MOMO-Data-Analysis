@@ -93,6 +93,18 @@ class MomoHandler(SimpleHTTPRequestHandler):
             data = fetch_all("withdrawals_from_agents")
             self.respond_json(data)
 
+        elif path == "/get-user-profile":
+            conn = sqlite3.connect(DB_PATH)
+            conn.row_factory = sqlite3.Row
+            cursor = conn.execute("SELECT fullname, email, phone FROM users ORDER BY id DESC LIMIT 1")
+            row = cursor.fetchone()
+            conn.close()
+            if row:
+                profile = {"fullname": row["fullname"], "email": row["email"], "phone": row["phone"] or ""}
+            else:
+                profile = {"fullname": "", "email": "", "phone": ""}
+            self.respond_json(profile)
+
         else:
             # Serve HTML frontend normally
             super().do_GET()
@@ -131,6 +143,22 @@ class MomoHandler(SimpleHTTPRequestHandler):
                 self.send_response(303)  # 303 = redirect after POST
                 self.send_header("Location", "/dashboard.html")
                 self.end_headers()
+            elif self.path == "/update-user-profile":
+                content_length = int(self.headers['Content-Length'])
+                body = self.rfile.read(content_length).decode()
+                data = json.loads(body)
+
+                conn = sqlite3.connect(DB_PATH)
+                cursor = conn.cursor()
+                cursor.execute("SELECT id FROM users ORDER BY id DESC LIMIT 1")
+                row = cursor.fetchone()
+                if row:
+                    user_id = row[0]
+                    cursor.execute("UPDATE users SET fullname=?, email=?, phone=? WHERE id=?", (data.get('fullname',''), data.get('email',''), data.get('phone',''), user_id))
+                    conn.commit()
+                conn.close()
+
+                self.respond_json({"success": True})
             else:
                 self.send_response(404)
                 self.end_headers()

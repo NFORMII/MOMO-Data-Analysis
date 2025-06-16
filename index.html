@@ -27,13 +27,7 @@
       <input type="password" name="password" placeholder="Password" required />
       <button type="submit">Sign Up</button>
     </form>
-    <script>
-      document.getElementById('signupForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent actual form submission
-        // Simulate successful signup, then redirect
-        window.location.href = 'dashboard.html';
-      });
-    </script>
+    
     <div class="login-link">
       Already have an account? <a href="/login">Login here</a>
     </div>
@@ -42,4 +36,11 @@
 
 
 </body>
+<script>
+      document.getElementById('signupForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent actual form submission
+        // Simulate successful signup, then redirect
+        window.location.href = 'dashboard.html';
+      });
+    </script>
 </html>
