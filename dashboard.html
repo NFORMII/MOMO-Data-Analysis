@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="dashboard.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- Tailwind link removed -->
   <link rel="stylesheet" href="./dashboard.css">
 </head>
 <body>
@@ -43,123 +43,159 @@
 
   <!-- Detail Sections -->
 <div id="dashboard-section" class="details-section">
-  <h2 class="text-2xl font-bold mb-6 text-[#001F5B]">Dashboard Overview</h2>
+  <h2 class="dashboard-title">Dashboard Overview</h2>
   
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="dashboard-grid">
     
+    <!-- Card: All Transactions -->
+    <div class="dashboard-card all-transactions">
+      <div class="dashboard-card-content vertical">
+        <div class="dashboard-card-icon all">
+          <i class="fas fa-list"></i>
+        </div>
+        <div>
+          <h3 class="dashboard-card-title">All Transactions</h3>
+          <div class="progress-bar-container"><div class="progress-bar" id="progress-all"></div></div>
+          <p class="dashboard-card-amount"><span class="animated-number" id="all-tx">0</span></p>
+        </div>
+      </div>
+    </div>
+
     <!-- Card: Bank Transfers -->
-    <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105">
-      <div class="flex items-center space-x-4">
-        <div class="text-purple-600 text-3xl">
+    <div class="dashboard-card bank-transfers">
+      <div class="dashboard-card-content vertical">
+        <div class="dashboard-card-icon purple">
           <i class="fas fa-university"></i>
         </div>
         <div>
-          <h3 class="text-lg font-semibold text-gray-800">Bank Transfers</h3>
-          <p class="text-gray-600">12,000 FCFA</p>
-          <span class="text-sm text-gray-400">3 Transactions</span>
+          <h3 class="dashboard-card-title">Bank Transfers</h3>
+          <div class="progress-bar-container"><div class="progress-bar" id="progress-bank"></div></div>
+          <p class="dashboard-card-amount"><span class="animated-number" id="bank-tx">0</span> FCFA</p>
+          <span class="dashboard-card-tx">3 Transactions</span>
         </div>
       </div>
     </div>
 
     <!-- Card: Airtime -->
-    <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105">
-      <div class="flex items-center space-x-4">
-        <div class="text-orange-500 text-3xl">
+    <div class="dashboard-card airtime">
+      <div class="dashboard-card-content vertical">
+        <div class="dashboard-card-icon orange">
           <i class="fas fa-mobile-alt"></i>
         </div>
         <div>
-          <h3 class="text-lg font-semibold text-gray-800">Airtime</h3>
-          <p class="text-gray-600">2,000 FCFA</p>
-          <span class="text-sm text-gray-400">1 Transaction</span>
+          <h3 class="dashboard-card-title">Airtime</h3>
+          <div class="progress-bar-container"><div class="progress-bar" id="progress-airtime"></div></div>
+          <p class="dashboard-card-amount"><span class="animated-number" id="airtime-tx">0</span> FCFA</p>
+          <span class="dashboard-card-tx">1 Transaction</span>
         </div>
       </div>
     </div>
 
     <!-- Card: Payments -->
-    <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105">
-      <div class="flex items-center space-x-4">
-        <div class="text-teal-600 text-3xl">
+    <div class="dashboard-card payments">
+      <div class="dashboard-card-content vertical">
+        <div class="dashboard-card-icon teal">
           <i class="fas fa-credit-card"></i>
         </div>
         <div>
-          <h3 class="text-lg font-semibold text-gray-800">Payments</h3>
-          <p class="text-gray-600">5,500 FCFA</p>
-          <span class="text-sm text-gray-400">2 Transactions</span>
+          <h3 class="dashboard-card-title">Payments</h3>
+          <div class="progress-bar-container"><div class="progress-bar" id="progress-payments"></div></div>
+          <p class="dashboard-card-amount"><span class="animated-number" id="payments-tx">0</span> FCFA</p>
+          <span class="dashboard-card-tx">2 Transactions</span>
         </div>
       </div>
     </div>
 
     <!-- Card: Withdrawals -->
-    <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105">
-      <div class="flex items-center space-x-4">
-        <div class="text-orange-400 text-3xl">
+    <div class="dashboard-card withdrawals">
+      <div class="dashboard-card-content vertical">
+        <div class="dashboard-card-icon orange-light">
           <i class="fas fa-money-bill-wave"></i>
         </div>
         <div>
-          <h3 class="text-lg font-semibold text-gray-800">Withdrawals</h3>
-          <p class="text-gray-600">10,000 FCFA</p>
-          <span class="text-sm text-gray-400">2 Transactions</span>
+          <h3 class="dashboard-card-title">Withdrawals</h3>
+          <div class="progress-bar-container"><div class="progress-bar" id="progress-withdrawals"></div></div>
+          <p class="dashboard-card-amount"><span class="animated-number" id="withdrawals-tx">0</span> FCFA</p>
+          <span class="dashboard-card-tx">2 Transactions</span>
         </div>
       </div>
     </div>
 
     <!-- Card: Data Bundles -->
-    <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105">
-      <div class="flex items-center space-x-4">
-        <div class="text-blue-500 text-3xl">
+    <div class="dashboard-card data-bundles">
+      <div class="dashboard-card-content vertical">
+        <div class="dashboard-card-icon blue">
           <i class="fas fa-wifi"></i>
         </div>
         <div>
-          <h3 class="text-lg font-semibold text-gray-800">Data Bundles</h3>
-          <p class="text-gray-600">3,500 FCFA</p>
-          <span class="text-sm text-gray-400">1 Transaction</span>
+          <h3 class="dashboard-card-title">Data Bundles</h3>
+          <div class="progress-bar-container"><div class="progress-bar" id="progress-bundles"></div></div>
+          <p class="dashboard-card-amount"><span class="animated-number" id="bundles-tx">0</span> FCFA</p>
+          <span class="dashboard-card-tx">1 Transaction</span>
         </div>
       </div>
     </div>
 
     <!-- Card: Failed Transfers -->
-    <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transform transition duration-300 hover:scale-105">
-      <div class="flex items-center space-x-4">
-        <div class="text-red-500 text-3xl">
+    <div class="dashboard-card failed-transfers">
+      <div class="dashboard-card-content vertical">
+        <div class="dashboard-card-icon red">
           <i class="fas fa-times-circle"></i>
         </div>
         <div>
-          <h3 class="text-lg font-semibold text-gray-800">Failed Transfers</h3>
-          <p class="text-gray-600">0 FCFA</p>
-          <span class="text-sm text-gray-400">0 Transactions</span>
+          <h3 class="dashboard-card-title">Failed Transfers</h3>
+          <div class="progress-bar-container"><div class="progress-bar" id="progress-failed"></div></div>
+          <p class="dashboard-card-amount"><span class="animated-number" id="failed-tx">0</span> FCFA</p>
+          <span class="dashboard-card-tx">0 Transactions</span>
         </div>
       </div>
     </div>
 
   </div>
-  <div class="chart-section">
-  <div class="chart-box">
-    <h3>Transaction Categories</h3>
-    <canvas id="categoryChart"></canvas>
-  </div>
+  <div class="chart-section chart-grid-2x3">
+    <div class="chart-box">
+      <h3>Transaction Categories</h3>
+      <canvas id="categoryChart"></canvas>
+    </div>
 
-  <div class="chart-box">
-    <h3>Daily Transaction Amount</h3>
-    <canvas id="dailyChart"></canvas>
+    <div class="chart-box">
+      <h3>Daily Transaction Amount</h3>
+      <canvas id="dailyChart"></canvas>
+    </div>
+    <div class="chart-box">
+      <h3>Withdrawals vs Deposits</h3>
+      <canvas id="withdrawalsDepositsChart"></canvas>
+    </div>
+    <div class="chart-box">
+      <h3>Payments by Type</h3>
+      <canvas id="paymentsTypeChart"></canvas>
+    </div>
+    <div class="chart-box">
+      <h3>Monthly Growth</h3>
+      <canvas id="monthlyGrowthChart"></canvas>
+    </div>
+    <div class="chart-box">
+      <h3>Top Senders</h3>
+      <canvas id="topSendersChart"></canvas>
+    </div>
   </div>
-</div>
 
 </div>
 
 
   <div id="incoming-money-section" class="details-section">
    <h2>Incoming Money</h2>
-  <table id="incoming_money_table" class="table-auto w-full mt-4 text-left">
+  <table id="incoming_money_table" class="styled-table">
     <thead>
-      <tr class="bg-gray-200 text-sm">
-        <th class="px-4 py-2">Transaction ID</th>
-        <th class="px-4 py-2">Amount Received</th>
-        <th class="px-4 py-2">Sender</th>
-        <th class="px-4 py-2">Date</th>
-        <th class="px-4 py-2">New Balance</th>
+      <tr>
+        <th>Transaction ID</th>
+        <th>Amount Received</th>
+        <th>Sender</th>
+        <th>Date</th>
+        <th>New Balance</th>
       </tr>
     </thead>
-    <tbody id="transactions-body" class="text-sm">
+    <tbody id="transactions-body">
       <!-- Data will be inserted here -->
     </tbody>
   </table>
@@ -168,19 +204,19 @@
   <div id="payments-section" class="details-section">
     <h2>Payments</h2>
     <p>Paid 2,000 FCFA for groceries</p>
-     <table id="payments-table" class="table-auto w-full mt-4 text-left">
+     <table id="payments-table" class="styled-table">
     <thead>
-      <tr class="bg-gray-200 text-sm">
-        <th class="px-4 py-2">Transaction ID</th>
-        <th class="px-4 py-2">payment_amount</th>
-        <th class="px-4 py-2">token</th>
-        <th class="px-4 py-2">Date</th>
-        <th class="px-4 py-2">fee</th>
-        <th class="px-4 py-2">new_balance</th>
-        <th class="px-4 py-2">provider</th>
+      <tr>
+        <th>Transaction ID</th>
+        <th>payment_amount</th>
+        <th>token</th>
+        <th>Date</th>
+        <th>fee</th>
+        <th>new_balance</th>
+        <th>provider</th>
       </tr>
     </thead>
-    <tbody id="payments-body" class="text-sm">
+    <tbody id="payments-body">
       <!-- Data will be inserted here -->
     </tbody>
   </table>
@@ -189,21 +225,21 @@
   <div id="withdrawals-section" class="details-section">
     <h2>Withdrawals</h2>
     <p>ATM withdrawal - 7,000 FCFA</p>
-     <table id="withdrawals-table" class="table-auto w-full mt-4 text-left">
+     <table id="withdrawals-table" class="styled-table">
     <thead>
-      <tr class="bg-gray-200 text-sm">
-        <th class="px-4 py-2">Name</th>
-        <th class="px-4 py-2">agent_name</th>
-        <th class="px-4 py-2">agent_number</th>
-        <th class="px-4 py-2">account</th>
-        <th class="px-4 py-2">amount</th>
-        <th class="px-4 py-2">date</th>
-        <th class="px-4 py-2">fee</th>
-        <th class="px-4 py-2">new_balance</th>
-        <th class="px-4 py-2">transaction_id</th>
+      <tr>
+        <th>Name</th>
+        <th>agent_name</th>
+        <th>agent_number</th>
+        <th>account</th>
+        <th>amount</th>
+        <th>date</th>
+        <th>fee</th>
+        <th>new_balance</th>
+        <th>transaction_id</th>
       </tr>
     </thead>
-    <tbody id="withdrawals-body" class="text-sm">
+    <tbody id="withdrawals-body">
       <!-- Data will be inserted here -->
     </tbody>
   </table>
@@ -212,17 +248,17 @@
   <div id="airtime-purchase-section" class="details-section">
     <h2>Airtime Purchase</h2>
     <p>Airtime bought - 1,000 FCFA</p>
-     <table id="airtime-purchase-table" class="table-auto w-full mt-4 text-left">
+     <table id="airtime-purchase-table" class="styled-table">
     <thead>
-      <tr class="bg-gray-200 text-sm">
-        <th class="px-4 py-2">Date</th>
-        <th class="px-4 py-2">txid</th>
-        <th class="px-4 py-2">payment amount</th>
-        <th class="px-4 py-2">fee</th>
-        <th class="px-4 py-2">New Balance</th>
+      <tr>
+        <th>Date</th>
+        <th>txid</th>
+        <th>payment amount</th>
+        <th>fee</th>
+        <th>New Balance</th>
       </tr>
     </thead>
-    <tbody id="airtime-purchase-body" class="text-sm">
+    <tbody id="airtime-purchase-body">
       <!-- Data will be inserted here -->
     </tbody>
   </table>
@@ -231,18 +267,18 @@
   <div id="bank-transfers-section" class="details-section">
     <h2>Bank Transfers</h2>
     <p>Transfer to Ecobank - 15,000 FCFA</p>
-     <table id="bank-transfere-table" class="table-auto w-full mt-4 text-left">
+     <table id="bank-transfere-table" class="styled-table">
     <thead>
-      <tr class="bg-gray-200 text-sm">
-        <th class="px-4 py-2">transaction_id</th>
-        <th class="px-4 py-2">amount</th>
-        <th class="px-4 py-2">date</th>
-        <th class="px-4 py-2">recipient name</th>
-        <th class="px-4 py-2">recipient phone</th>
-        <th class="px-4 py-2">sender account</th>
+      <tr>
+        <th>transaction_id</th>
+        <th>amount</th>
+        <th>date</th>
+        <th>recipient name</th>
+        <th>recipient phone</th>
+        <th>sender account</th>
       </tr>
     </thead>
-    <tbody id="bank-transfers-body" class="text-sm">
+    <tbody id="bank-transfers-body">
       <!-- Data will be inserted here -->
     </tbody>
   </table>
@@ -251,19 +287,19 @@
   <div id="unknown-section" class="details-section">
     <h2>Unknown Transactions</h2>
     <p>Transaction under review</p>
-     <table id="unknown-table" class="table-auto w-full mt-4 text-left">
+     <table id="unknown-table" class="styled-table">
     <thead>
-      <tr class="bg-gray-200 text-sm">
-        <th class="px-4 py-2">txid</th>
-        <th class="px-4 py-2">amount</th>
-        <th class="px-4 py-2">date</th>
-        <th class="px-4 py-2">sender</th>
-        <th class="px-4 py-2">new balance</th>
-        <th class="px-4 py-2">fee</th>
-        <th class="px-4 py-2">external transaction id</th>
+      <tr>
+        <th>txid</th>
+        <th>amount</th>
+        <th>date</th>
+        <th>sender</th>
+        <th>new balance</th>
+        <th>fee</th>
+        <th>external transaction id</th>
       </tr>
     </thead>
-    <tbody id="unknown-body" class="text-sm">
+    <tbody id="unknown-body">
       <!-- Data will be inserted here -->
     </tbody>
   </table>
@@ -272,17 +308,17 @@
   <div id="data-bundles-section" class="details-section">
     <h2>Data Bundles</h2>
     <p>1GB purchased for 2,000 FCFA</p>
-     <table id="data-bundles-table" class="table-auto w-full mt-4 text-left">
+     <table id="data-bundles-table" class="styled-table">
     <thead>
-      <tr class="bg-gray-200 text-sm">
-        <th class="px-4 py-2">Transaction ID</th>
-        <th class="px-4 py-2">Amount </th>
-        <th class="px-4 py-2">Service</th>
-        <th class="px-4 py-2">Date</th>
-        <th class="px-4 py-2">New Balance</th>
+      <tr>
+        <th>Transaction ID</th>
+        <th>Amount </th>
+        <th>Service</th>
+        <th>Date</th>
+        <th>New Balance</th>
       </tr>
     </thead>
-    <tbody id="data-bundles-body" class="text-sm">
+    <tbody id="data-bundles-body">
       <!-- Data will be inserted here -->
     </tbody>
   </table>
@@ -291,18 +327,18 @@
   <div id="bank-deposits-section" class="details-section">
     <h2>Bank Deposits</h2>
     <p>Deposited 10,000 FCFA</p>
-     <table id="bank-deposits-table" class="table-auto w-full mt-4 text-left">
+     <table id="bank-deposits-table" class="styled-table">
     <thead>
-      <tr class="bg-gray-200 text-sm">
-        <th class="px-4 py-2">Transaction ID</th>
-        <th class="px-4 py-2">Amount </th>
-        <th class="px-4 py-2">date</th>
-        <th class="px-4 py-2">new balance</th>
-        <th class="px-4 py-2">fee</th>
-        <th class="px-4 py-2">recipient</th>
+      <tr>
+        <th>Transaction ID</th>
+        <th>Amount </th>
+        <th>date</th>
+        <th>new balance</th>
+        <th>fee</th>
+        <th>recipient</th>
       </tr>
     </thead>
-    <tbody id="bank-deposits-body" class="text-sm">
+    <tbody id="bank-deposits-body">
       <!-- Data will be inserted here -->
     </tbody>
   </table>
@@ -311,28 +347,23 @@
   <div id="failed-transfer-section" class="details-section">
     <h2>Failed Transfers</h2>
     <p>Transfer to UBA - Failed</p>
-    <table id="failed-transfer-table" class="table-auto w-full mt-4 text-left">
+    <table id="failed-transfer-table" class="styled-table">
       <thead>
-        <tr class="bg-gray-200 text-sm">
-          <th class="px-4 py-2">amount transfered</th>
-          <th class="px-4 py-2">recipient</th>
-          <th class="px-4 py-2">recipient number</th>
-          <th class="px-4 py-2">date</th>
-          <th class="px-4 py-2">time</th>
-          <th class="px-4 py-2">fee</th>
-          <th class="px-4 py-2">new balance</th>
+        <tr>
+          <th>amount transfered</th>
+          <th>recipient</th>
+          <th>recipient number</th>
+          <th>date</th>
+          <th>time</th>
+          <th>fee</th>
+          <th>new balance</th>
         </tr>
       </thead>
-      <tbody id="failed-transfer-body" class="text-sm">
+      <tbody id="failed-transfer-body">
         <!-- Data will be inserted here -->
       </tbody>
 
   </div>
-
-  <!-- <div id="fund-transfer-section" class="details-section">
-    <h2>Fund Transfers</h2>
-    <p>Sent 3,000 FCFA to sibling</p>
-  </div> -->
 
 
   <script>
@@ -382,6 +413,99 @@
         label: 'FCFA',
         data: [8000, 12000, 5500, 9500, 7000],
         backgroundColor: '#001F5B'
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: value => value + ' FCFA'
+          }
+        }
+      }
+    }
+  });
+  // BAR CHART: Withdrawals vs Deposits
+  const ctx3 = document.getElementById('withdrawalsDepositsChart').getContext('2d');
+  new Chart(ctx3, {
+    type: 'bar',
+    data: {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+      datasets: [
+        {
+          label: 'Withdrawals',
+          data: [3000, 4000, 2500, 3500, 2000],
+          backgroundColor: '#e74c3c'
+        },
+        {
+          label: 'Deposits',
+          data: [5000, 6000, 4500, 7000, 3000],
+          backgroundColor: '#27ae60'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: value => value + ' FCFA'
+          }
+        }
+      }
+    }
+  });
+  // DOUGHNUT CHART: Payments by Type
+  const ctx4 = document.getElementById('paymentsTypeChart').getContext('2d');
+  new Chart(ctx4, {
+    type: 'doughnut',
+    data: {
+      labels: ['Groceries', 'Bills', 'Airtime', 'Other'],
+      datasets: [{
+        label: 'Payments',
+        data: [2000, 1500, 1000, 500],
+        backgroundColor: ['#ff9800', '#009688', '#2196f3', '#9c27b0']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'bottom' }
+      }
+    }
+  });
+  // LINE CHART: Monthly Growth
+  const ctx5 = document.getElementById('monthlyGrowthChart').getContext('2d');
+  new Chart(ctx5, {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      datasets: [{
+        label: 'Growth',
+        data: [100, 200, 350, 500, 700, 900],
+        borderColor: '#673ab7',
+        backgroundColor: 'rgba(103,58,183,0.1)',
+        fill: true,
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: true
+    }
+  });
+  // BAR CHART: Top Senders
+  const ctx6 = document.getElementById('topSendersChart').getContext('2d');
+  new Chart(ctx6, {
+    type: 'bar',
+    data: {
+      labels: ['Alice', 'Bob', 'Carol', 'Dan', 'Eve'],
+      datasets: [{
+        label: 'Amount Sent',
+        data: [1200, 950, 800, 700, 600],
+        backgroundColor: ['#ff9800', '#009688', '#2196f3', '#9c27b0', '#e74c3c']
       }]
     },
     options: {
@@ -609,8 +733,44 @@
   });
 
 
-
-
+function animateValue(id, start, end, duration) {
+  const obj = document.getElementById(id);
+  let startTimestamp = null;
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    obj.textContent = Math.floor(progress * (end - start) + start);
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    } else {
+      obj.textContent = end;
+    }
+  };
+  window.requestAnimationFrame(step);
+}
+function animateBar(id, percent) {
+  const bar = document.getElementById(id);
+  bar.style.width = '0';
+  setTimeout(() => {
+    bar.style.width = percent + '%';
+  }, 100);
+}
+document.addEventListener('DOMContentLoaded', () => {
+  animateValue('all-tx', 0, 1600, 1200);
+  animateBar('progress-all', 100);
+  animateValue('bank-tx', 0, 12000, 1000);
+  animateBar('progress-bank', 60);
+  animateValue('airtime-tx', 0, 2000, 1000);
+  animateBar('progress-airtime', 20);
+  animateValue('payments-tx', 0, 5500, 1000);
+  animateBar('progress-payments', 40);
+  animateValue('withdrawals-tx', 0, 10000, 1000);
+  animateBar('progress-withdrawals', 50);
+  animateValue('bundles-tx', 0, 3500, 1000);
+  animateBar('progress-bundles', 25);
+  animateValue('failed-tx', 0, 0, 1000);
+  animateBar('progress-failed', 0);
+});
 </script>
 
 
