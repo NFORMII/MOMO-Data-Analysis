@@ -172,10 +172,12 @@
     <thead>
       <tr class="bg-gray-200 text-sm">
         <th class="px-4 py-2">Transaction ID</th>
-        <th class="px-4 py-2">Amount Received</th>
-        <th class="px-4 py-2">Sender</th>
+        <th class="px-4 py-2">payment_amount</th>
+        <th class="px-4 py-2">token</th>
         <th class="px-4 py-2">Date</th>
-        <th class="px-4 py-2">New Balance</th>
+        <th class="px-4 py-2">fee</th>
+        <th class="px-4 py-2">new_balance</th>
+        <th class="px-4 py-2">provider</th>
       </tr>
     </thead>
     <tbody id="payments-body" class="text-sm">
@@ -197,7 +199,7 @@
         <th class="px-4 py-2">amount</th>
         <th class="px-4 py-2">date</th>
         <th class="px-4 py-2">fee</th>
-        <th class="px-4 py-2">new_balance/th>
+        <th class="px-4 py-2">new_balance</th>
         <th class="px-4 py-2">transaction_id</th>
       </tr>
     </thead>
@@ -210,37 +212,127 @@
   <div id="airtime-purchase-section" class="details-section">
     <h2>Airtime Purchase</h2>
     <p>Airtime bought - 1,000 FCFA</p>
+     <table id="airtime-purchase-table" class="table-auto w-full mt-4 text-left">
+    <thead>
+      <tr class="bg-gray-200 text-sm">
+        <th class="px-4 py-2">Date</th>
+        <th class="px-4 py-2">txid</th>
+        <th class="px-4 py-2">payment amount</th>
+        <th class="px-4 py-2">fee</th>
+        <th class="px-4 py-2">New Balance</th>
+      </tr>
+    </thead>
+    <tbody id="airtime-purchase-body" class="text-sm">
+      <!-- Data will be inserted here -->
+    </tbody>
+  </table>
   </div>
 
   <div id="bank-transfers-section" class="details-section">
     <h2>Bank Transfers</h2>
     <p>Transfer to Ecobank - 15,000 FCFA</p>
+     <table id="bank-transfere-table" class="table-auto w-full mt-4 text-left">
+    <thead>
+      <tr class="bg-gray-200 text-sm">
+        <th class="px-4 py-2">transaction_id</th>
+        <th class="px-4 py-2">amount</th>
+        <th class="px-4 py-2">date</th>
+        <th class="px-4 py-2">recipient name</th>
+        <th class="px-4 py-2">recipient phone</th>
+        <th class="px-4 py-2">sender account</th>
+      </tr>
+    </thead>
+    <tbody id="bank-transfers-body" class="text-sm">
+      <!-- Data will be inserted here -->
+    </tbody>
+  </table>
   </div>
 
   <div id="unknown-section" class="details-section">
     <h2>Unknown Transactions</h2>
     <p>Transaction under review</p>
+     <table id="unknown-table" class="table-auto w-full mt-4 text-left">
+    <thead>
+      <tr class="bg-gray-200 text-sm">
+        <th class="px-4 py-2">txid</th>
+        <th class="px-4 py-2">amount</th>
+        <th class="px-4 py-2">date</th>
+        <th class="px-4 py-2">sender</th>
+        <th class="px-4 py-2">new balance</th>
+        <th class="px-4 py-2">fee</th>
+        <th class="px-4 py-2">external transaction id</th>
+      </tr>
+    </thead>
+    <tbody id="unknown-body" class="text-sm">
+      <!-- Data will be inserted here -->
+    </tbody>
+  </table>
   </div>
 
   <div id="data-bundles-section" class="details-section">
     <h2>Data Bundles</h2>
     <p>1GB purchased for 2,000 FCFA</p>
+     <table id="data-bundles-table" class="table-auto w-full mt-4 text-left">
+    <thead>
+      <tr class="bg-gray-200 text-sm">
+        <th class="px-4 py-2">Transaction ID</th>
+        <th class="px-4 py-2">Amount </th>
+        <th class="px-4 py-2">Service</th>
+        <th class="px-4 py-2">Date</th>
+        <th class="px-4 py-2">New Balance</th>
+      </tr>
+    </thead>
+    <tbody id="data-bundles-body" class="text-sm">
+      <!-- Data will be inserted here -->
+    </tbody>
+  </table>
   </div>
 
   <div id="bank-deposits-section" class="details-section">
     <h2>Bank Deposits</h2>
     <p>Deposited 10,000 FCFA</p>
+     <table id="bank-deposits-table" class="table-auto w-full mt-4 text-left">
+    <thead>
+      <tr class="bg-gray-200 text-sm">
+        <th class="px-4 py-2">Transaction ID</th>
+        <th class="px-4 py-2">Amount </th>
+        <th class="px-4 py-2">date</th>
+        <th class="px-4 py-2">new balance</th>
+        <th class="px-4 py-2">fee</th>
+        <th class="px-4 py-2">recipient</th>
+      </tr>
+    </thead>
+    <tbody id="bank-deposits-body" class="text-sm">
+      <!-- Data will be inserted here -->
+    </tbody>
+  </table>
   </div>
 
   <div id="failed-transfer-section" class="details-section">
     <h2>Failed Transfers</h2>
     <p>Transfer to UBA - Failed</p>
+    <table id="failed-transfer-table" class="table-auto w-full mt-4 text-left">
+      <thead>
+        <tr class="bg-gray-200 text-sm">
+          <th class="px-4 py-2">amount transfered</th>
+          <th class="px-4 py-2">recipient</th>
+          <th class="px-4 py-2">recipient number</th>
+          <th class="px-4 py-2">date</th>
+          <th class="px-4 py-2">time</th>
+          <th class="px-4 py-2">fee</th>
+          <th class="px-4 py-2">new balance</th>
+        </tr>
+      </thead>
+      <tbody id="failed-transfer-body" class="text-sm">
+        <!-- Data will be inserted here -->
+      </tbody>
+
   </div>
 
-  <div id="fund-transfer-section" class="details-section">
+  <!-- <div id="fund-transfer-section" class="details-section">
     <h2>Fund Transfers</h2>
     <p>Sent 3,000 FCFA to sibling</p>
-  </div>
+  </div> -->
 
 
   <script>
@@ -328,7 +420,7 @@
   });
 
 
-    fetch('./data/payment_to_code_holders.json')
+    fetch('./data/cash_power_bill_payments.json')
   .then(response => response.json())
   .then(data => {
     const tableBody = document.getElementById('payments-body');
@@ -338,10 +430,12 @@
       const row = document.createElement('tr');
       row.innerHTML = `
         <td class="px-4 py-2">${tx.transaction_id}</td>
-        <td class="px-4 py-2">${tx.amount} FCFA</td>
-        <td class="px-4 py-2">${tx.new_balance}</td>
-        <td class="px-4 py-2">${tx.fee}</td>
-        <td class="px-4 py-2">${tx.recipient} FCFA</td>
+        <td class="px-4 py-2">${tx.payment_amount} FCFA</td>
+        <td class="px-4 py-2">${tx.token}</td>
+        <td class="px-4 py-2">${tx.date}</td>
+        <td class="px-4 py-2">${tx.fee} FCFA</td>
+        <td class="px-4 py-2">${tx.new_balance} FCFA</td>
+        <td class="px-4 py-2">${tx.provider} FCFA</td>
       `;
       tableBody.appendChild(row);
     });
@@ -375,6 +469,146 @@
   .catch(error => {
     console.error('Error loading transactions:', error);
   });
+
+  fetch('./data/airtime_payments.json')
+  .then(response => response.json())
+  .then(data => {
+    const tableBody = document.getElementById('airtime-purchase-body');
+    tableBody.innerHTML = ''; // Clear existing content
+
+    data.forEach(tx => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td class="px-4 py-2">${tx.date}</td>
+        <td class="px-4 py-2">${tx.txid}</td>
+        <td class="px-4 py-2">${tx.payment_amount} FCFA</td>
+        <td class="px-4 py-2">${tx.fee} FCFA</td>
+        <td class="px-4 py-2">${tx.new_balance} FCFA</td>
+      `;
+      tableBody.appendChild(row);
+    });
+  })
+  .catch(error => {
+    console.error('Error loading transactions:', error);
+  });
+
+   fetch('./data/bank_transfers.json')
+  .then(response => response.json())
+  .then(data => {
+    const tableBody = document.getElementById('bank-transfers-body');
+    tableBody.innerHTML = ''; // Clear existing content
+
+    data.forEach(tx => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td class="px-4 py-2">${tx.transaction_id}</td>
+        <td class="px-4 py-2">${tx.amount} FCFA</td>
+        <td class="px-4 py-2">${tx.date}</td>
+        <td class="px-4 py-2">${tx.recipient_name}</td>
+        <td class="px-4 py-2">${tx.recipient_phone}</td>
+        <td class="px-4 py-2">${tx.sender_account}</td>
+      `;
+      tableBody.appendChild(row);
+    });
+  })
+  .catch(error => {
+    console.error('Error loading transactions:', error);
+  });
+
+   fetch('./data/transactions_initiated_by_third_parties.json')
+  .then(response => response.json())
+  .then(data => {
+    const tableBody = document.getElementById('unknown-body');
+    tableBody.innerHTML = ''; // Clear existing content
+
+    data.forEach(tx => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td class="px-4 py-2">${tx.transaction_id}</td>
+        <td class="px-4 py-2">${tx.amount} FCFA</td>
+        <td class="px-4 py-2">${tx.date}</td>
+        <td class="px-4 py-2">${tx.sender}</td>
+        <td class="px-4 py-2">${tx.new_balance} FCFA</td>
+        <td class="px-4 py-2">${tx.fee} FCFA</td>
+        <td class="px-4 py-2">${tx.external_transaction_id}</td>
+      `;
+      tableBody.appendChild(row);
+    });
+  })
+  .catch(error => {
+    console.error('Error loading transactions:', error);
+  });
+
+  fetch('./data/internet_voice_bundles.json')
+  .then(response => response.json())
+  .then(data => {
+    const tableBody = document.getElementById('data-bundles-body');
+    tableBody.innerHTML = ''; // Clear existing content
+
+    data.forEach(tx => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td class="px-4 py-2">${tx.transaction_id}</td>
+        <td class="px-4 py-2">${tx.amount} FCFA</td>
+        <td class="px-4 py-2">${tx.service}</td>
+        <td class="px-4 py-2">${tx.date}</td>
+        <td class="px-4 py-2">${tx.new_balance} FCFA</td>
+      `;
+      tableBody.appendChild(row);
+    });
+  })
+  .catch(error => {
+    console.error('Error loading transactions:', error);
+  });
+
+  fetch('./data/bank_deposits.json')
+  .then(response => response.json())
+  .then(data => {
+    const tableBody = document.getElementById('bank-deposits-body');
+    tableBody.innerHTML = ''; // Clear existing content
+
+    data.forEach(tx => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td class="px-4 py-2">${tx.transaction_id}</td>
+        <td class="px-4 py-2">${tx.amount} FCFA</td>
+        <td class="px-4 py-2">${tx.date}</td>
+        <td class="px-4 py-2">${tx.new_balance} FCFA</td>
+        <td class="px-4 py-2">${tx.fee} FCFA</td>
+        <td class="px-4 py-2">${tx.recipient} FCFA</td>
+      `;
+      tableBody.appendChild(row);
+    });
+  })
+  .catch(error => {
+    console.error('Error loading transactions:', error);
+  });
+
+  fetch('./data/failed_transactions.json')
+  .then(response => response.json())
+  .then(data => {
+    const tableBody = document.getElementById('failed-transfer-body');
+    tableBody.innerHTML = ''; // Clear existing content
+
+    data.forEach(tx => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td class="px-4 py-2">${tx.amount_transferred}FCFA</td>
+        <td class="px-4 py-2">${tx.recipient}</td>
+        <td class="px-4 py-2">${tx.recipient_number}</td>
+        <td class="px-4 py-2">${tx.date}</td>
+        <td class="px-4 py-2">${tx.time}</td>
+        <td class="px-4 py-2">${tx.fee} FCFA</td>
+        <td class="px-4 py-2">${tx.new_balance} FCFA</td>
+      `;
+      tableBody.appendChild(row);
+    });
+  })
+  .catch(error => {
+    console.error('Error loading transactions:', error);
+  });
+
+
 
 
 </script>
