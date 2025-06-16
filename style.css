@@ -1,24 +1,37 @@
 body {
       font-family: Arial, sans-serif;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
       margin: 0;
+      background-color:#f4f4f4;
+      padding: 40px 20px;
     }
 
+    .welcome h1 {
+color:#008080;
+font-size: 2rem;
+    }
+    .welcome p {
+      color: #333;
+      font-size:1rem;
+      margin-top: 0.5rem;
+    }
     .signup-container {
-      background: rgb(245, 221, 12);
+      background: #f4f4f4;
       padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       width: 100%;
       max-width: 400px;
+      text-align: center;
     }
 
-    h2 {
-      text-align: center;
+    .signup-container h2 {
       margin-bottom: 1.5rem;
+      color: #222;
     }
 
     input[type="text"],
@@ -44,7 +57,7 @@ body {
     }
 
     button:hover {
-      background-color: #6a4fb3;
+      background-color: #006666;
     }
 
     .login-link {
@@ -53,10 +66,20 @@ body {
     }
 
     .login-link a {
-      color: #2e0775;
+      color: #07753e;
       text-decoration: none;
     }
 
     .login-link a:hover {
       text-decoration: underline;
+    }
+
+    .logo{
+    text-align:center;
+    margin-bottom: 1rem;
+    }
+
+    .logo img{
+      width:120px;
+      height:auto;
     }
