@@ -149,7 +149,7 @@
 
   <div id="incoming-money-section" class="details-section">
    <h2>Incoming Money</h2>
-  <table id="transactions-table" class="table-auto w-full mt-4 text-left">
+  <table id="incoming_money_table" class="table-auto w-full mt-4 text-left">
     <thead>
       <tr class="bg-gray-200 text-sm">
         <th class="px-4 py-2">Transaction ID</th>
@@ -168,7 +168,7 @@
   <div id="payments-section" class="details-section">
     <h2>Payments</h2>
     <p>Paid 2,000 FCFA for groceries</p>
-     <table id="transactions-table" class="table-auto w-full mt-4 text-left">
+     <table id="payments-table" class="table-auto w-full mt-4 text-left">
     <thead>
       <tr class="bg-gray-200 text-sm">
         <th class="px-4 py-2">Transaction ID</th>
@@ -187,6 +187,24 @@
   <div id="withdrawals-section" class="details-section">
     <h2>Withdrawals</h2>
     <p>ATM withdrawal - 7,000 FCFA</p>
+     <table id="withdrawals-table" class="table-auto w-full mt-4 text-left">
+    <thead>
+      <tr class="bg-gray-200 text-sm">
+        <th class="px-4 py-2">Name</th>
+        <th class="px-4 py-2">agent_name</th>
+        <th class="px-4 py-2">agent_number</th>
+        <th class="px-4 py-2">account</th>
+        <th class="px-4 py-2">amount</th>
+        <th class="px-4 py-2">date</th>
+        <th class="px-4 py-2">fee</th>
+        <th class="px-4 py-2">new_balance/th>
+        <th class="px-4 py-2">transaction_id</th>
+      </tr>
+    </thead>
+    <tbody id="withdrawals-body" class="text-sm">
+      <!-- Data will be inserted here -->
+    </tbody>
+  </table>
   </div>
 
   <div id="airtime-purchase-section" class="details-section">
@@ -331,6 +349,34 @@
   .catch(error => {
     console.error('Error loading transactions:', error);
   });
+
+   fetch('./data/withdrawals_from_agents.json')
+  .then(response => response.json())
+  .then(data => {
+    const tableBody = document.getElementById('withdrawals-body');
+    tableBody.innerHTML = ''; // Clear existing content
+
+    data.forEach(tx => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td class="px-4 py-2">${tx.name}</td>
+        <td class="px-4 py-2">${tx.agent_name} FCFA</td>
+        <td class="px-4 py-2">${tx.agent_number}</td>
+        <td class="px-4 py-2">${tx.account}</td>
+        <td class="px-4 py-2">${tx.amount} FCFA</td>
+        <td class="px-4 py-2">${tx.date} FCFA</td>
+        <td class="px-4 py-2">${tx.fee} FCFA</td>
+        <td class="px-4 py-2">${tx.new_balance} FCFA</td>
+        <td class="px-4 py-2">${tx.transaction_id} FCFA</td>
+      `;
+      tableBody.appendChild(row);
+    });
+  })
+  .catch(error => {
+    console.error('Error loading transactions:', error);
+  });
+
+
 </script>
 
 
